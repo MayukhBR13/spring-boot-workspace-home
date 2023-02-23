@@ -23,10 +23,10 @@ import com.springboot.service.jwtService;
 @Component
 @RequiredArgsConstructor
 public class MyJwtAuthenticationFilter extends OncePerRequestFilter {
-	@Autowired
-	private final jwtService jwtService; 
 	
+	private final jwtService jwtService; 
 	private final UserDetailsService userService;
+	
 	@Override
 	protected void doFilterInternal(
 			HttpServletRequest request, 
