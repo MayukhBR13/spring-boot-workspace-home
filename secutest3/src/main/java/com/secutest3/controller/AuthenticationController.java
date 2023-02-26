@@ -32,8 +32,7 @@ public class AuthenticationController {
     @Autowired
     private JwtUtils jwtUtils;
 
-    @PostMapping("/user/")
-//    @PostMapping("/generate-token")
+    @PostMapping("/generate-token")
     public ResponseEntity<JwtResponse> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception{
     	System.out.println("inside generate-token");
     	System.out.println(jwtRequest.getUsername()+"------"+ jwtRequest.getPassword());

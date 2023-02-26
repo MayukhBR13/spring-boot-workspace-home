@@ -47,6 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.authorizeHttpRequests()
 			.antMatchers("/hi","/generate-token","/user/").permitAll()
 			.antMatchers(HttpMethod.OPTIONS).permitAll()
+			.antMatchers("/admin").hasAnyRole("ADMIN")
+			.antMatchers(HttpMethod.POST,"/items").hasAnyRole("ADMIN")
+			.antMatchers("/items").hasAnyRole("ADMIN","USER")
 			.anyRequest().authenticated()
 		     .and()
              .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
